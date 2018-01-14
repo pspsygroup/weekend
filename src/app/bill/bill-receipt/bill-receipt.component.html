@@ -1,0 +1,73 @@
+<mat-card class="card-booking-review" *ngIf="!isError">
+    <mat-card-header>
+
+        <mat-card-title>Your cash receipt</mat-card-title>
+    </mat-card-header>
+
+
+
+
+
+
+
+
+
+  <mat-card-content >
+    <!--<mat-card-content *ngIf="billInfo.isPaid==true">-->
+    <div class="headerpart">
+      <img src="assets/img/logo.png" width="150" class="img-circle img-logo">
+      <h5 class="text-align">{{billInfo?.companyData.name}}</h5>
+    </div>
+
+    <table class="table" >
+      <!--<table class="table" *ngIf="billInfo.isPaid">-->
+      <tr>
+        <th colspan="2">Date: {{billInfo?.date}}</th>
+      </tr>
+      <tr>
+
+        <td>Amount:{{billInfo?.amount}}</td>
+      </tr>
+      <tr>
+
+        <td>Item:{{billInfo?.item}}</td>
+      </tr>
+      <tr>
+
+        <td>PaymentID:{{billInfo?.paymentId}}</td>
+      </tr>
+      <tr>
+
+        <td>TransactionID:{{billInfo?.transactionId}}</td>
+      </tr>
+      <tr>
+
+        <td>TrackID:{{billInfo?.trackId}}</td>
+      </tr>
+
+    </table>
+    <!--<p style="font-weight: bold; font-size:18px;">Your Payment is not confirm yet!</p>-->
+    <!--<button *ngIf="bookingAvalibility==true" class="btn btn-block btn-danger" [disabled]="checkin.value >= checkout.value" (click)="paymentProcess(houseDetail.houseId,checkin.value,checkout.value)">{{'request'|translate}} {{'to'|translate}} {{'book'|translate}}</button>-->
+    <mat-input-container class="custom-input">
+      <input type="email" matInput placeholder="send email" name="email" [value]="email" required [(ngModel)]="send_email" >  </mat-input-container>
+
+    <button mat-raised-button color="accent" style="width:100%;" [disabled]="!send_email || send_email.length<5" (click)="onSendEmail(send_email)" >Send to  {{send_email}}</button>
+
+    <br/>
+    <p class="text-center"> All right reserved &copy;2017 WeekendMoney</p>
+
+  </mat-card-content>
+
+</mat-card>
+
+<mat-card class="card-booking-review" *ngIf="isError">
+  <div class="headerpart">
+    <img src="assets/img/logo.png" width="150" class="img-circle img-logo">
+    <h5 class="text-align">{{billInfo?.companyData.name}}company description</h5>
+  </div>
+  <h1>404error</h1>
+
+
+
+
+</mat-card>
