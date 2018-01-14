@@ -146,6 +146,7 @@ export const routerConfig: Route[] = [
                                     path: ':contact',
                                     children: [
                                       {
+
                                         path: ':orderid',
                                         children: [{path: ':amount', component: PaymentErrorComponent}]
                                       }
